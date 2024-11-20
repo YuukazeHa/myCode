@@ -1,52 +1,53 @@
 #include <stdio.h>
 int main(void)
 {
+  int a1, a2;
+  int b1, b2;
+  int c1, c2;
   int n;
-  int a1, a2, a3, a4;
-  int b1, b2, b3, b4;
-  int c1, c2, c3, c4;
-  scanf("%d %d %d %d %d %d %d", &n, &a1, &a2, &b1, &b2, &c1, &c2);
-  // if (n % a1 != 0)
-  // {
-  //   a3 = (int)(n / (double)a1);
-  // }
-  // else
-  // {
-  //   a3 = n / a1;
-  // }
-  // a4 = a3 * a2;
-
-  // if (n % b1 != 0)
-  // {
-  //   b3 = (int)(n / (double)b1);
-  // }
-  // else
-  // {
-  //   b3 = n / b1;
-  // }
-  // b4 = b3 * b2;
-  // if (n % c1 != 0)
-  // {
-  //   c3 = (int)(n / (double)c1);
-  // }
-  // else
-  // {
-  //   c3 = n / c1;
-  // }
-  // c4 = c3 * c2;
-  int number[3] = {a1, b1, c1};
-  for (int i = 0; i < 3; i++)
+  int s1, s2, s3;
+  int y1, y2, y3;
+  scanf("%d", &n);
+  scanf("%d %d %d %d %d %d", &a1, &a2, &b1, &b2, &c1, &c2);
+  if (n % a1 == 0)
   {
-    for (int j = 0; j < 3 - i; j++)
+    s1 = n / a1;
+  }
+  else
+  {
+    s1 = (int)(n / (double)a1) + 1;
+  }
+  y1 = s1 * a2;
+
+  if (n % b1 == 0)
+  {
+    s2 = n / b1;
+  }
+  else
+  {
+    s2 = (int)(n / (double)b1) + 1;
+  }
+  y2 = s2 * b2;
+
+  if (n % c1 == 0)
+  {
+    s3 = n / c1;
+  }
+  else
+  {
+    s3 = (int)(n / (double)c1) + 1;
+  }
+  y3 = s3 * c2;
+
+  int number[3] = {y1, y2, y3};
+  int min = number[0];
+  for (int i = 1; i < 3; i++)
+  {
+    if (min > number[i])
     {
-      if (number[j] > number[j + 1])
-      {
-        int temp = number[j + 1];
-        number[j + 1] = number[j];
-        number[j] = temp;
-      }
+      min = number[i];
     }
   }
-  printf("%d", number[0]);
+  printf("%d", min);
   return 0;
 }
